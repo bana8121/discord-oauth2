@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Completed</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #363636;
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bot-icon {
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn-icons-png.flaticon.com/512/725/725643.png') no-repeat center center;
+            background-size: contain;
+            margin: 0 auto 20px;
+        }
+
+        .bot-description {
+            margin: 20px 0;
+        }
+
+        .message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
+            background-color: #7289da;
+            color: white;
+        }
+
+        .button:hover {
+            background-color: #5b6eae;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="bot-icon"></div>
+        <div class="bot-description">
+            <h1>Verify Completed</h1>
+            <p class="message">You have successfully verified!</p>
+        </div>
+        <a href="/discordgo">
+            <button class="button">Go To Discord</button>
+        </a>
+        </form>
+    </div>
+
+</body>
+</html>

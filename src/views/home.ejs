@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Style Auth Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .bot-icon {
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn0.iconfinder.com/data/icons/driver-delivery-jobs-occupations-careers/250/occupation-05-010-512.png') no-repeat center center;
+            background-size: contain;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .bot-description {
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .light-mode .button {
+            background-color: #7289da;
+            color: white;
+        }
+
+        .dark-mode .button {
+            background-color: #99aab5;
+            color: black;
+        }
+
+        .toggle-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .toggle-mode:hover {
+            transform: scale(1.1);
+        }
+
+        .light-mode .toggle-mode {
+            background-color: #7289da;
+            color: white;
+        }
+
+        .dark-mode .toggle-mode {
+            background-color: #99aab5;
+            color: black;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode {
+            background-color: #2c2f33;
+            color: white;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <div class="bot-icon"></div>
+        <div class="bot-description">
+            <h1>Mail Man Bot</h1>
+            <p>This is a mail man bot, if you click verify it is gonna redirect to Discord main Page</p>
+        </div>
+        <button class="button verify-button">Verify</button>
+    </div>
+    <button class="toggle-mode" onclick="toggleMode()">Switch to Dark Mode</button>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            if (body.classList.contains('light-mode')) {
+                body.classList.replace('light-mode', 'dark-mode');
+                document.querySelector('.toggle-mode').textContent = 'Switch to Light Mode';
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                document.querySelector('.toggle-mode').textContent = 'Switch to Dark Mode';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const verifyButton = document.querySelector('.verify-button');
+            verifyButton.addEventListener('click', function() {
+                document.querySelector('#auth-form').submit();
+            });
+        });
+    </script>
+
+    <div style="display: none;">
+        <%- include('partials/header') -%>
+        <div class="my-button">
+            <form id="auth-form" action="/auth">
+                <button class="button is-primary is-rounded is-large custom-button" type="submit">Login with Discord</button>
+            </form>
+        </div>
+        <%- include('partials/footer') -%>
+    </div>
+</body>
+</html>
